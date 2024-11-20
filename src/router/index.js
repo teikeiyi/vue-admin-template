@@ -36,7 +36,6 @@ export const constantRoutes = [
     component: () => import('@/views/login/index'),
     hidden: true
   },
-
   {
     path: '/404',
     component: () => import('@/views/404'),
@@ -76,10 +75,32 @@ export const constantRoutes = [
       }
     ]
   },
-
+  {
+    path: '/table',
+    component: () => import('@/views/table/index'),
+    meta: { title: 'Table-my简单', icon: 'table' }
+  },
+  {
+    path: '/table',
+    component: Layout,
+    redirect: '/table/table',
+    name: 'Table',
+    meta: { title: 'Table-my-p复杂', icon: 'table' },
+    children: [
+      {
+        path: 'index',
+        name: 'Table',
+        component: () => import('@/views/table/index'),
+        meta: { title: 'Table-my-s复杂', icon: 'table' }
+      }
+    ]
+  },
   {
     path: '/form',
     component: Layout,
+    // redirect: '/form/index',
+    // name: 'Form',
+    // meta: { title: 'Form', icon: 'form' },
     children: [
       {
         path: 'index',
