@@ -75,39 +75,37 @@ export const constantRoutes = [
       }
     ]
   },
-  {
-    path: '/table',
-    component: () => import('@/views/table/index'),
-    meta: { title: 'Table-my简单', icon: 'table' }
-  },
-  {
-    path: '/table',
-    component: Layout,
-    redirect: '/table/table',
-    name: 'Table',
-    meta: { title: 'Table-my-p复杂', icon: 'table' },
-    children: [
-      {
-        path: 'index',
-        name: 'Table',
-        component: () => import('@/views/table/index'),
-        meta: { title: 'Table-my-s复杂', icon: 'table' }
-      }
-    ]
-  },
+  // {
+  //   // router简单配置(跳转的页面覆盖全屏，包括左侧导航栏)
+  //   'path': '/table',
+  //   'component': () => import('@/views/table/index'),
+  //   'meta': { 'title': 'Table-my简单', 'icon': 'table' }
+  // },
+  // {
+  //   //router复杂配置(配置一个子路遇，默认跳转父就是子路由，配置多个路由在点击展开)，展开时左侧导航栏还在。
+  //   path: '/table',
+  //   component: Layout,
+  //   redirect: '/table/table',
+  //   meta: { title: 'Table-my-p复杂', icon: 'table' },
+  //   children: [
+  //     {
+  //       path: 'index',
+  //       name: 'Table',
+  //       component: () => import('@/views/table/index'),
+  //       meta: { title: 'Table-my-s1复杂', icon: 'table' }
+  //     }
+  //   ]
+  // },
   {
     path: '/form',
     component: Layout,
-    // redirect: '/form/index',
-    // name: 'Form',
-    // meta: { title: 'Form', icon: 'form' },
     children: [
       {
         path: 'index',
         name: 'Form',
         component: () => import('@/views/form/index'),
         meta: { title: 'Form', icon: 'form' }
-      }
+      },
     ]
   },
 
