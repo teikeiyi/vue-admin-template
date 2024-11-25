@@ -1,7 +1,9 @@
-import axios from 'axios'
+import axios from 'axios'//用于发起 HTTP 请求的库
 import { MessageBox, Message } from 'element-ui'
-import store from '@/store'
-import { getToken } from '@/utils/auth'
+import store from '@/store'//管理应用的状态
+import { getToken } from '@/utils/auth'//获取用户的认证令牌。
+
+//使用 Axios 库创建的 HTTP 请求服务实例，通常用于 Vue.js 应用程序中。它包括请求和响应的拦截器，帮助处理请求中的认证、错误消息和其他相关功能
 
 // create an axios instance
 const service = axios.create({
@@ -10,7 +12,7 @@ const service = axios.create({
   timeout: 5000 // request timeout
 })
 
-// request interceptor
+// request interceptor(拦截器)
 service.interceptors.request.use(
   config => {
     // do something before request is sent
@@ -53,7 +55,7 @@ service.interceptors.response.use(
         duration: 5 * 1000
       })
 
-      // 50008: Illegal token; 50012: Other clients logged in; 50014: Token expired;
+      // 50008: Illegal token; 50012: Other clients logged in; 50014: Token expired(到期);
       if (res.code === 50008 || res.code === 50012 || res.code === 50014) {
         // to re-login
         MessageBox.confirm('You have been logged out, you can cancel to stay on this page, or log in again', 'Confirm logout', {
