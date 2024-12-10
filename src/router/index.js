@@ -81,21 +81,22 @@ export const constantRoutes = [
   //   'component': () => import('@/views/table/index'),
   //   'meta': { 'title': 'Table-my简单', 'icon': 'table' }
   // },
-  // {
-  //   //router复杂配置(配置一个子路遇，默认跳转父就是子路由，配置多个路由在点击展开)，展开时左侧导航栏还在。
-  //   path: '/table',
-  //   component: Layout,
-  //   redirect: '/table/table',
-  //   meta: { title: 'Table-my-p复杂', icon: 'table' },
-  //   children: [
-  //     {
-  //       path: 'index',
-  //       name: 'Table',
-  //       component: () => import('@/views/table/index'),
-  //       meta: { title: 'Table-my-s1复杂', icon: 'table' }
-  //     }
-  //   ]
-  // },
+  {
+    //router复杂配置(配置一个子路遇，默认跳转父就是子路由，配置多个路由在点击展开)，展开时左侧导航栏还在。
+    //创建走马灯
+    path: '/carousel',
+    component: Layout,
+    redirect: '/carousel',
+    meta: { title: '走马灯', icon: 'table' },
+    children: [
+      {
+        path: 'index',
+        name: 'Carousel',
+        component: () => import('@/views/carousel/index'),
+        meta: { title: '子-走马灯', icon: 'table' }
+      }
+    ]
+  },
   {
     path: '/form',
     component: Layout,
