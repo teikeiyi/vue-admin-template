@@ -1,10 +1,10 @@
 import router from './router'
 import store from './store'
 import { Message } from 'element-ui'
-import NProgress from 'nprogress' // progress bar
+import NProgress from 'nprogress' // progress bar/进度条
 import 'nprogress/nprogress.css' // progress bar style
-import { getToken } from '@/utils/auth' // get token from cookie
-import getPageTitle from '@/utils/get-page-title'
+import { getToken } from '@/utils/auth' // get token from cookie/从 cookie 中获取用户的登录令牌
+import getPageTitle from '@/utils/get-page-title'//根据路由元数据获取页面标题。
 
 NProgress.configure({ showSpinner: false }) // NProgress Configuration
 
@@ -24,11 +24,11 @@ router.beforeEach(async(to, from, next) => {
     if (to.path === '/login') {
       // if is logged in, redirect to the home page
       next({ path: '/' })
-      NProgress.done()
+      NProgress.done()//结束进度条的显示
     } else {
       const hasGetUserInfo = store.getters.name
       if (hasGetUserInfo) {
-        next()
+        next()//路由继续
       } else {
         try {
           // get user info
